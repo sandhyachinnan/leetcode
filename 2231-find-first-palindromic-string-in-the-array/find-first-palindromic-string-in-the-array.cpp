@@ -1,22 +1,16 @@
 class Solution {
 public:
     string firstPalindrome(vector<string>& words) {
-        for(auto s:words)
+        for(const string&s:words)
         {
             bool p=true;
             int i=0,j=s.size()-1;
-            while(i<j)
+            while(i<j&&s[i]==s[j])
             {
-                if(s[i]!=s[j])
-                {
-                    p=false;
-                    break;
-
-                }
                 i++;
                 j--;
             }
-            if(p)return s;
+            if(i>=j)return s;
         }
         return "";
     }
