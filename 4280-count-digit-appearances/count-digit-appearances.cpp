@@ -2,22 +2,23 @@ class Solution {
 public:
     int countDigitOccurrences(vector<int>& nums, int digit) {
         int count=0;
-        for(int i=0;i<nums.size();i++)
+        for(auto s:nums)
         {
-        while(nums[i]>0)
-        {
-            if(nums[i]%10==digit)
+            if(s==0 && digit==0)
             {
                 count++;
+                continue;
             }
-            nums[i]/=10;
-
+            while(s!=0)
+            {
+                if(s%10==digit)
+                {
+                    count++;
+                }
+                s/=10;
+            }
         }
-        }
-        
         return count;
+
     }
-    
-   
-    
 };
